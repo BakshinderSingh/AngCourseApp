@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <img
       [src]="recipe.imagePath"
       alt="{{ recipe.name }}"
@@ -8,12 +8,12 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <h1>{{ recipe.name }}</h1>
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-12">
+<div class="row mt-2">
+  <div class="col-12">
     <div
       class="btn-group"
       ngbDropdown>
@@ -29,18 +29,18 @@
       <ul class="dropdown-menu" ngbDropdownMenu>
         <li><a (click)="onAddToShoppingList()" style="cursor: pointer;">To Shopping List</a></li>
         <li><a style="cursor: pointer;" (click)="onEditRecipe()">Edit Recipe</a></li>
-        <li><a style="cursor: pointer;">Delete Recipe</a></li>
+        <li><a style="cursor: pointer;" (click)="onDeleteRecipe()">Delete Recipe</a></li>
       </ul>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-12">
+<div class="row mt-2">
+  <div class="col-12">
     {{ recipe.description }}
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-12">
+<div class="row mt-2">
+  <div class="col-12">
     <ul class="list-group">
       <li
         class="list-group-item"

@@ -1,3 +1,62 @@
-<p>
-  recipe-edit works!
-</p>
+<div class="row">
+  <div class="col-12">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-12">
+          <button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" formControlName="name" id="name" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input type="text" formControlName="imagePath" id="imagepath" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <img class="img-responsive " src="" alt="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea rows="6" type="text" formControlName="description" id="description" class="form-control">
+              </textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row" formArrayName="ingredients">
+          <div class="col-12" >
+            <div class="row mt-2" *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i=index" [formGroupName]="i">
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName='name'>
+              </div>
+              <div class="col-2">
+                  <input type="number" class="form-control" formControlName='amount'>
+              </div>
+              <div class="col-2">
+                    <div class="btn btn-danger">X</div>
+              </div>
+            </div> 
+          </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12">
+          <button class="btn btn-success" type="button" (click)="addIngredient()">AddIngredient</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

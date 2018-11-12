@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 
@@ -18,6 +17,12 @@ export class RecipeListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.recipeService.recipesChanged.subscribe(
+      (data:Recipe[])=>
+      {
+        this.recipes=data;
+      }
+    )
     this.recipes = this.recipeService.getRecipes();
   }
 
