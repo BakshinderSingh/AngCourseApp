@@ -10,8 +10,8 @@ pool:
   vmImage: ubuntu-latest
 strategy:
   matrix:
-    Python38:
-      python.version: '3'
+    Python2:
+      python.version: '2.7'
 
 steps:
 - task: NodeTool@0
